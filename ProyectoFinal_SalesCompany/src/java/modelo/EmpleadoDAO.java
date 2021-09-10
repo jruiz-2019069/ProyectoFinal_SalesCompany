@@ -82,7 +82,7 @@ public class EmpleadoDAO {
            ps.executeUpdate();
        }catch(Exception e){
            e.printStackTrace();
-           System.out.println("No se pudo agregar el registro");
+           System.err.println("No se pudo agregar el registro");
        }
         
         

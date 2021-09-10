@@ -7,16 +7,24 @@ package controlador;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Empleado;
+import modelo.EmpleadoDAO;
 
 /**
  *
  * @author DELL
  */
 public class Controlador extends HttpServlet {
+
+    EmpleadoDAO empleadoDao = new EmpleadoDAO();
+    Empleado empleado = new Empleado();
+    int codigoEmpleado;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +37,85 @@ public class Controlador extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Controlador</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Controlador at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
+        String menu = request.getParameter("menu");
+        String opcion = request.getParameter("opcion");
+        switch (menu) {
+            case "Principal":
+                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                break;
+
+            case "Producto":
+                request.getRequestDispatcher("Producto.jsp").forward(request, response);
+                break;
+
+            case "Empleado":
+                switch (opcion) {
+
+                    case "Listar":
+                        List listaEmpleados = empleadoDao.listar();
+                        request.setAttribute("empleados", listaEmpleados);
+                        break;
+
+                    case "Agregar":
+                        empleado.setDPIEmpleado(request.getParameter("txtDPIEmpleado"));
+                        empleado.setNombresEmpleado(request.getParameter("txtNombresEmpleado"));
+                        empleado.setTelefonoEmpleado(request.getParameter("txtTelefonoEmpleado"));
+                        empleado.setEstado(request.getParameter("txtEstadoEmpleado"));
+                        empleado.setUsuario(request.getParameter("txtUsuario"));
+
+                        empleadoDao.agregar(empleado);
+                        request.getRequestDispatcher("Controlador?menu=Empleado&opcion=Listar").forward(request, response);
+                        break;
+
+                    case "Editar":
+                        codigoEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
+                        empleado = empleadoDao.listarCodigoEmpleado(codigoEmpleado);
+                        request.setAttribute("emp", empleado);
+
+                        request.getRequestDispatcher("Controlador?menu=Empleado&opcion=Listar").forward(request, response);
+
+                        break;
+
+                    case "Actualizar":
+                        empleado.setCodigoEmpleado(codigoEmpleado);
+                        empleado.setDPIEmpleado(request.getParameter("txtDPIEmpleado"));
+                        empleado.setNombresEmpleado(request.getParameter("txtNombresEmpleado"));
+                        empleado.setTelefonoEmpleado(request.getParameter("txtTelefonoEmpleado"));
+                        empleado.setEstado(request.getParameter("txtEstadoEmpleado"));
+                        empleado.setUsuario(request.getParameter("txtUsuario"));
+                        
+                        empleadoDao.actualizar(empleado);
+                         request.getRequestDispatcher("Controlador?menu=Empleado&opcion=Listar").forward(request, response);
+                        
+
+                        break;
+
+                    case "Eliminar":
+                        codigoEmpleado = Integer.parseInt(request.getParameter("idEmpleado"));
+                        empleadoDao.eliminar(codigoEmpleado);
+                        request.getRequestDispatcher("Controlador?menu=Empleado&opcion=Listar").forward(request, response);
+
+                        break;
+
+                }
+
+                request.getRequestDispatcher("Empleado.jsp").forward(request, response);
+                break;
+
+            case "Clientes":
+                request.getRequestDispatcher("Cliente.jsp").forward(request, response);
+                break;
+
+            case "RegistrarVenta":
+                request.getRequestDispatcher("Venta.jsp").forward(request, response);
+                break;
+
+            case "Home":
+                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                break;
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

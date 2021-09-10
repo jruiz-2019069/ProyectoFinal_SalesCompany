@@ -4,6 +4,7 @@
     Author     : Renato Salguero
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,29 +17,29 @@
     <body>
         <div class="d-flex">
             <div class="card col-sm-4">
-                <form class="card-body">
+                <form action="Controlador?menu=Empleado" method="POST">
                     <div class="form-group">
-                        <label">DPI:</label>
-                        <input type="text" name="txtDPIEmpleado" class="form-control">
+                        <label>DPI:</label>
+                        <input type="text" name="txtDPIEmpleado" value="${emp.getDPIEmpleado()} " class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Nombres:</label>
-                        <input type="text" name="txtNombresEmpleado" class="form-control">
+                        <input type="text" name="txtNombresEmpleado" value="${emp.getNombresEmpleado()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Teléfono:</label>
-                        <input type="text" name="txtTelefonoEmpleado" class="form-control">
+                        <input type="text" name="txtTelefonoEmpleado" value="${emp.getTelefonoEmpleado()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Estado:</label>
-                        <input type="text" name="txtEstadoEmpleado" class="form-control">
+                        <input type="text" name="txtEstadoEmpleado" value="${emp.getEstado()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Usuario:</label>
-                        <input type="text" name="txtUsuario" class="form-control"> <br>
+                        <input type="text" name="txtUsuario" value="${emp.getUsuario()}" class="form-control"> <br>
                     </div>
-                    <input type="submit" name="accion" value="Agregar" class="btn btn-info">
-                    <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
+                    <input type="submit" name="opcion" value="Agregar" class="btn btn-info">
+                    <input type="submit" name="opcion" value="Actualizar" class="btn btn-success">
 
                 </form>
             </div>
@@ -47,29 +48,33 @@
                 <table class="table table-striped text-center">
                     <thead>
                         <tr class="table-info">
+                            <td>CÓDIGO</td>
                             <td>DPI</td>
-                            <td>Nombres</td>
-                            <td>Teléfono</td>
-                            <td>Estado</td>
-                            <td>Usuario</td>
-                            <td>Acciones</td>
-
+                            <td>NOMBRES</td>
+                            <td>TELÉFONO</td>
+                            <td>ESTADO</td>
+                            <td>USUARIO</td>
+                            <td>ACCIONES</td>
                         </tr>
-                    <tbody>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a class="btn btn-warning">Editar</a>
-                                <a class="btn btn-danger">Eliminar</a>
-                            </td>
-                        </tr>
-                    </tbody>
                     </thead>
+
+                    <tbody>
+                        <c:forEach var="empleado" items="${empleados}">
+                            <tr class="text-center">
+                                <td>${empleado.getCodigoEmpleado()}</td>
+                                <td>${empleado.getDPIEmpleado()}</td>
+                                <td>${empleado.getNombresEmpleado()}</td>
+                                <td>${empleado.getTelefonoEmpleado()}</td>
+                                <td>${empleado.getEstado()}</td>
+                                <td>${empleado.getUsuario()}</td>
+                                <td>
+                                    <a class="btn btn-warning" href="Controlador?menu=Empleado&opcion=Editar&idEmpleado=${empleado.getCodigoEmpleado()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Empleado&opcion=Eliminar&idEmpleado=${empleado.getCodigoEmpleado()}">Eliminar</a>                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+
+
                 </table>
 
             </div>

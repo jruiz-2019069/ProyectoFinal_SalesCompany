@@ -21,10 +21,10 @@
                         <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Producto&accion=Listar" target="myFrame">Producto</a>
+                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Producto" target="myFrame">Producto</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Empleado" target="myFrame">Empleado</a>
+                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Empleado&opcion=Listar" target="myFrame">Empleado</a>
                     </li>
                     <li class="nav-item">
                         <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Clientes" target="myFrame">Clientes</a>
@@ -36,17 +36,17 @@
             </div>
             <div class="dropdown">
                 <button style="border: none; " class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    nombre de usuario
+                    ${usuario.getNombresEmpleado()}
                 </button>
                 <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">
                         <img src="img/user.png" alt="100" width="100"/>
                     </a>
-                    <a class="dropdown-item" href="#"> usuario</a>
-                    <a class="dropdown-item" href="#"> correo usuario</a>
+                    <a class="dropdown-item" href="#"> ${usuario.getUsuario()}</a>
+                    <a class="dropdown-item" href="#"> ${usuario.getUsuario()}@gmail.com</a>
                     <div class="dropdown-divider"></div>
                     <form action="Validar" method="POST">
-                        <button name="accion" name="Salir" class="dropdown-item" href="#">Salir</button>
+                        <button name="accion" class="dropdown-item" href="#">Salir</button>
                     </form>
                 </div>
             </div>

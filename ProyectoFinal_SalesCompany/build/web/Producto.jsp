@@ -4,6 +4,7 @@
     Author     : DELL
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,25 +17,25 @@
     <body>
         <div class="d-flex">
             <div class="card col-sm-4">
-                <form class="card-body">
+                <form action="Controlador?menu=Producto" method="POST">
                     <div class="form-group">
                         <label>Producto:</label>
-                        <input type="text" name="txtnombreProducto" class="form-control">
+                        <input type="text" name="txtNombreProducto" value="${pro.getNombreProducto()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Precio:</label>
-                        <input type="text" name="txtprecio" class="form-control">
+                        <input type="text" name="txtPrecio" value="${pro.getPrecio()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Stock:</label>
-                        <input type="text" name="txtstock" class="form-control">
+                        <input type="text" name="txtStock" value="${pro.getStock()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Estado:</label>
-                        <input type="text" name="txtestado" class="form-control"><br>
+                        <input type="text" name="txtEstado" value="${pro.getEstado()}" class="form-control"><br>
                     </div>
-                    <input type="submit" name="accion" value="Agregar" class="btn btn-info">
-                    <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
+                    <input type="submit" name="opcion" value="Agregar" class="btn btn-info">
+                    <input type="submit" name="opcion" value="Actualizar" class="btn btn-success">
                 </form>
             </div>
 
@@ -50,20 +51,23 @@
                             <td>ESTADO</td>
                             <td>ACCIONES</td>
                         </tr>
-                    <tbody>
-                        <tr>
-                            <td> asasas</td>
-                            <td>adsad</td>
-                            <td>sdasdas</td>
-                            <td>dsadas</td>
-                            <td>asdasd</td>
-                            <td>
-                                <a class="btn btn-warning">Editar</a>
-                                <a class="btn btn-danger">Eliminar</a>
-                            </td>
-                        </tr>
-                    </tbody>    
                     </thead>
+                    <tbody>
+                        <c:forEach var="producto" items="${productos}">
+                            <tr>
+                                <td>${producto.getCodigoProducto()} </td>
+                                <td>${producto.getNombreProducto()} </td>
+                                <td>${producto.getPrecio()} </td>
+                                <td>${producto.getStock()} </td>
+                                <td>${producto.getEstado()} </td>
+                                <td>
+                                    <a class="btn btn-warning" href="Controlador?menu=Producto&opcion=Editar&idProducto=${producto.getCodigoProducto()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Producto&opcion=Eliminar&idProducto=${producto.getCodigoProducto()}">Eliminar</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>    
+
 
                 </table>
             </div>

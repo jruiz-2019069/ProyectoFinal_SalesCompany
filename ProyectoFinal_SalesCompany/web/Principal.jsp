@@ -21,13 +21,13 @@
                         <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Producto" target="myFrame">Producto</a>
+                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Producto&opcion=Listar" target="myFrame">Producto</a>
                     </li>
                     <li class="nav-item">
                         <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Empleado&opcion=Listar" target="myFrame">Empleado</a>
                     </li>
                     <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Clientes" target="myFrame">Clientes</a>
+                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Clientes&opcion=Listar" target="myFrame">Clientes</a>
                     </li>
                     <li class="nav-item">
                         <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=RegistrarVenta" target="myFrame">Nueva Venta</a>

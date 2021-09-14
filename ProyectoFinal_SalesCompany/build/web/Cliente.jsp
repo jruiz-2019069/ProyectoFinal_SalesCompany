@@ -4,6 +4,7 @@
     Author     : DELL
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,25 +18,25 @@
     <body>
         <div class="d-flex">
             <div class="card col-sm-4">
-                <form class="card-body">
+                <form action="Controlador?menu=Clientes" method="POST">
                     <div class="form-group">
                         <label>DPI:</label>
-                        <input type="text" name="txtDPICliente" class="form-control">
+                        <input type="text" name="txtDPICliente" value="${cliente1.getDPICliente()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Nombres:</label>
-                        <input type="text" name="txtNombresCliente" class="form-control">
+                        <input type="text" name="txtNombresCliente" value="${cliente1.getNombresCliente()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Dirección:</label>
-                        <input type="text" name="txtDireccionCliente" class="form-control">
+                        <input type="text" name="txtDireccionCliente" value="${cliente1.getDireccionCliente()}" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Estado:</label>
-                        <input type="text" name="txtEstadoCliente" class="form-control">
+                        <input type="text" name="txtEstadoCliente" value="${cliente1.getEstado()}" class="form-control">
                     </div>
-                    <input type="submit" name="accion" value="Agregar" class="btn btn-info">
-                    <input type="submit" name="accion" value="Actualizar" class="btn btn-success">
+                    <input type="submit" name="opcion" value="Agregar" class="btn btn-info">
+                    <input type="submit" name="opcion" value="Actualizar" class="btn btn-success">
 
                 </form>
             </div>
@@ -43,7 +44,9 @@
             <div class="col-sm-8">
                 <table class="table table-striped text-center">
                     <thead>
+
                         <tr class="table-info">
+                            <td>CÓDIGO</td>
                             <td>DPI</td>
                             <td>NOMBRES</td>
                             <td>DIRECCIÓN</td>
@@ -51,20 +54,24 @@
                             <td>ACCIONES</td>
 
                         </tr>
-                    <tbody>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a class="btn btn-warning">Editar</a>
-                                <a class="btn btn-danger">Eliminar</a>
-                            </td>
-                        </tr>
-                    </tbody>
                     </thead>
+                    <tbody>
+                        <c:forEach var="cliente" items="${clientes}">
+                            <tr>
+                                <td>${cliente.getCodigoCliente()}</td>
+                                <td>${cliente.getDPICliente()}</td>
+                                <td>${cliente.getNombresCliente()}</td>
+                                <td>${cliente.getDireccionCliente()}</td>
+                                <td>${cliente.getEstado()}</td>
+                                
+                                <td>
+                                    <a class="btn btn-warning" href="Controlador?menu=Clientes&opcion=Editar&idCliente=${cliente.getCodigoCliente()}">Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Clientes&opcion=Eliminar&idCliente=${cliente.getCodigoCliente()}">Eliminar</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+
                 </table>
 
             </div>

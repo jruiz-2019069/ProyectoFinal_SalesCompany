@@ -119,5 +119,3 @@ INSERT INTO DetalleVenta(codigoProducto, cantidad, precioVenta, codigoVenta)
 INSERT INTO DetalleVenta(codigoProducto, cantidad, precioVenta, codigoVenta)
 	VALUES(5, 10, 1850.00, 5);
 
-
-

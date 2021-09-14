@@ -41,7 +41,7 @@ public class ProductoDAO {
 
     //Método Agregar
     public int agregar(Producto pr) {
-        String sql = "INSERT INTO Producto(nombreProducto, precio, stock, estado) VALUES (?,?,?,?)";
+        String sql = "insert into Producto(nombreProducto, precio, stock, estado)values (?,?,?,?)";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);

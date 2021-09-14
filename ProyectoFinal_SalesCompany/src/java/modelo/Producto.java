@@ -3,14 +3,14 @@ package modelo;
 public class Producto {
     private int codigoProducto;
     private String nombreProducto;
-    private String precio;
-    private String stock;
+    private double precio ;
+    private int stock;
     private String estado;
 
     public Producto() {
     }
 
-    public Producto(int codigoProducto, String nombreProducto, String precio, String stock, String estado) {
+    public Producto(int codigoProducto, String nombreProducto, double precio, int stock, String estado) {
         this.codigoProducto = codigoProducto;
         this.nombreProducto = nombreProducto;
         this.precio = precio;
@@ -34,19 +34,19 @@ public class Producto {
         this.nombreProducto = nombreProducto;
     }
 
-    public String getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
-    public String getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
@@ -57,6 +57,8 @@ public class Producto {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+   
     
     
 }

@@ -27,8 +27,8 @@ public class ProductoDAO {
                 Producto pr = new Producto();
                 pr.setCodigoProducto(rs.getInt(1));
                 pr.setNombreProducto(rs.getString(2));
-                pr.setPrecio(rs.getString(3));
-                pr.setStock(rs.getString(4));
+                pr.setPrecio(rs.getDouble(3));
+                pr.setStock(rs.getInt(4));
                 pr.setEstado(rs.getString(5));
                 listaProducto.add(pr);
             }
@@ -46,8 +46,8 @@ public class ProductoDAO {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, pr.getNombreProducto());
-            ps.setString(2, pr.getPrecio());
-            ps.setString(3, pr.getStock());
+            ps.setDouble(2, pr.getPrecio());
+            ps.setInt(3, pr.getStock());
             ps.setString(4, pr.getEstado());
             ps.executeUpdate();
         } catch (Exception e) {
@@ -69,8 +69,8 @@ public class ProductoDAO {
             while (rs.next()) {
                 pr.setCodigoProducto(rs.getInt(1));
                 pr.setNombreProducto(rs.getString(2));
-                pr.setPrecio(rs.getString(3));
-                pr.setStock(rs.getString(4));
+                pr.setPrecio(rs.getDouble(3));
+                pr.setStock(rs.getInt(4));
                 pr.setEstado(rs.getString(5));
             }
         } catch (Exception e) {
@@ -88,8 +88,8 @@ public class ProductoDAO {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, pr.getNombreProducto());
-            ps.setString(2, pr.getPrecio());
-            ps.setString(3, pr.getStock());
+            ps.setDouble(2, pr.getPrecio());
+            ps.setInt(3, pr.getStock());
             ps.setString(4, pr.getEstado());
             ps.setInt(5, pr.getCodigoProducto());
             ps.executeUpdate();

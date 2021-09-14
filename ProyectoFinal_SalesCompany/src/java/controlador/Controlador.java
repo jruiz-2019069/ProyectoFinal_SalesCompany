@@ -66,10 +66,9 @@ public class Controlador extends HttpServlet {
                         break;
 
                     case "Agregar":
-                        producto.setCodigoProducto(codigoProducto);
                         producto.setNombreProducto(request.getParameter("txtNombreProducto"));
-                        producto.setPrecio(request.getParameter("txtPrecio"));
-                        producto.setStock(request.getParameter("txtStock"));
+                        producto.setPrecio( Double.parseDouble(request.getParameter("txtPrecio")));
+                        producto.setStock(Integer.parseInt(request.getParameter("txtStock")));
                         producto.setEstado(request.getParameter("txtEstado"));
                         productoDAO.agregar(producto);
                         
@@ -89,8 +88,8 @@ public class Controlador extends HttpServlet {
                     case "Actualizar":
                         producto.setCodigoProducto(codigoProducto);
                         producto.setNombreProducto(request.getParameter("txtNombreProducto"));
-                        producto.setPrecio(request.getParameter("txtPrecio"));
-                        producto.setStock(request.getParameter("txtStock"));
+                        producto.setPrecio(Double.parseDouble(request.getParameter("txtPrecio")));
+                        producto.setStock(Integer.parseInt(request.getParameter("txtStock")));
                         producto.setEstado(request.getParameter("txtEstado"));
                         productoDAO.actualizar(producto);
 

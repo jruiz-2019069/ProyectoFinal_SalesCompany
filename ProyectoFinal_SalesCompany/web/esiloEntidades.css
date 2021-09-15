@@ -1,0 +1,37 @@
+
+
+
+@font-face {
+    font-family:dash ;
+    src: url(img/DASH.otf);
+}
+
+@font-face {
+    font-family:verti;
+    src: url(img/Vertiky.ttf);
+}
+
+
+@font-face {
+    font-family:hilm;
+    src: url(img/HILMALAYA.ttf);
+}
+
+.fuente{
+    font-family:hilm;
+    font-size: 25px;
+}
+
+.tabla{
+    font-family: dash;
+    font-size: 20px;
+}
+
+.contenido{
+    font-family: verti;
+    font-size: 17px;
+}
+
+
+
+

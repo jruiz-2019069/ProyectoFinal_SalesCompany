@@ -13,6 +13,7 @@
         <title>Nueva Venta</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="esiloEntidades.css"/>
     </head>
     <body>
         <div class="d-flex">
@@ -22,7 +23,7 @@
                         <div class="card-body">
 
                             <div class="form-group">
-                                <label>Datos del Cliente</label>
+                                <label class="fuente">Datos del Cliente</label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
@@ -36,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Datos del Producto</label>
+                                <label class="fuente">Datos del Producto</label>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
@@ -84,18 +85,18 @@
 
 
                                 <tr>
-                                    <th>Número</th>
-                                    <th>Código</th>
-                                    <th>Descripción</th>
-                                    <th>Precio</th>
-                                    <th>Cantidad</th>
-                                    <th>Subtotal</th>
-                                    <th>Acciones</th>
+                                    <th class="tabla">Número</th>
+                                    <th class="tabla">Código</th>
+                                    <th class="tabla">Descripción</th>
+                                    <th class="tabla">Precio</th>
+                                    <th class="tabla">Cantidad</th>
+                                    <th class="tabla">Subtotal</th>
+                                    <th class="tabla">Acciones</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr class="contenido">
                                     <td></td>
                                     <td></td>
                                     <td></td>

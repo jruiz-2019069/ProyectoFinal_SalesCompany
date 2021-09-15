@@ -365,3 +365,11 @@ footer {
 
 }
 
+@font-face {
+    font-family:adalbs;
+    src: url(img/ADALBS.ttf);
+}
+.titulo{
+    font-family: adalbs;
+    font-size: 50px;
+}

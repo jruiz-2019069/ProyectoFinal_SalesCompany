@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
         <title>Empleados</title>
+        <link rel="stylesheet" href="esiloEntidades.css"/>
     </head>
     <body>
         <div class="container-fluid">
@@ -21,23 +22,23 @@
                 <div class="card col-sm-4">
                     <form action="Controlador?menu=Empleado" method="POST">
                         <div class="form-group">
-                            <label>DPI:</label>
+                            <label class="fuente">DPI:</label>
                             <input type="text" name="txtDPIEmpleado" value="${emp.getDPIEmpleado()} " class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Nombres:</label>
+                            <label class="fuente">Nombres:</label>
                             <input type="text" name="txtNombresEmpleado" value="${emp.getNombresEmpleado()}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Teléfono:</label>
+                            <label class="fuente">Teléfono:</label>
                             <input type="text" name="txtTelefonoEmpleado" value="${emp.getTelefonoEmpleado()}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Estado:</label>
+                            <label class="fuente">Estado:</label>
                             <input type="text" name="txtEstadoEmpleado" value="${emp.getEstado()}" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label>Usuario:</label>
+                            <label class="fuente">Usuario:</label>
                             <input type="text" name="txtUsuario" value="${emp.getUsuario()}" class="form-control"> <br>
                         </div>
                         <input type="submit" name="opcion" value="Agregar" class="btn btn-info">
@@ -50,19 +51,19 @@
                     <table class="table table-striped text-center">
                         <thead>
                             <tr class="table-info">
-                                <td><b>CÓDIGO</b></td>
-                                <td><b>DPI</b></td>
-                                <td><b>NOMBRES</b></td>
-                                <td><b>TELÉFONO</b></td>
-                                <td><b>ESTADO</b></td>
-                                <td><b>USUARIO</b></td>
-                                <td><b>ACCIONES</b></td>
+                                <td class="tabla"><b>CÓDIGO</b></td>
+                                <td class="tabla"><b>DPI</b></td>
+                                <td class="tabla"><b>NOMBRES</b></td>
+                                <td class="tabla"><b>TELÉFONO</b></td>
+                                <td class="tabla"><b>ESTADO</b></td>
+                                <td class="tabla"><b>USUARIO</b></td>
+                                <td class="tabla"><b>ACCIONES</b></td>
                             </tr>
                         </thead>
 
                         <tbody>
                             <c:forEach var="empleado" items="${empleados}">
-                                <tr class="text-center">
+                                <tr class="contenido">
                                     <td>${empleado.getCodigoEmpleado()}</td>
                                     <td>${empleado.getDPIEmpleado()}</td>
                                     <td>${empleado.getNombresEmpleado()}</td>

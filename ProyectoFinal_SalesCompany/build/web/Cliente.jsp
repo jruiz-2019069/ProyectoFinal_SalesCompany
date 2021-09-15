@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="esiloEntidades.css"/>
         <title>Clientes</title>
     </head>
     <body>
@@ -20,19 +21,19 @@
             <div class="card col-sm-4">
                 <form action="Controlador?menu=Clientes" method="POST">
                     <div class="form-group">
-                        <label>DPI:</label>
+                        <label class="fuente">DPI:</label>
                         <input type="text" name="txtDPICliente" value="${cliente1.getDPICliente()}" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Nombres:</label>
+                        <label class="fuente">Nombres:</label>
                         <input type="text" name="txtNombresCliente" value="${cliente1.getNombresCliente()}" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Dirección:</label>
+                        <label class="fuente">Dirección:</label>
                         <input type="text" name="txtDireccionCliente" value="${cliente1.getDireccionCliente()}" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label>Estado:</label>
+                        <label class="fuente"> Estado:</label>
                         <input type="text" name="txtEstadoCliente" value="${cliente1.getEstado()}" class="form-control">
                     </div>
 
@@ -47,18 +48,18 @@
                     <thead>
 
                         <tr class="table-info">
-                            <td><b>CÓDIGO</b></td>
-                            <td><b>DPI</b></td>
-                            <td><b>NOMBRES</b></td>
-                            <td><b>DIRECCIÓN</b></td>
-                            <td><b>ESTADO</b></td>
-                            <td><b>ACCIONES</b></td>
+                            <td class="tabla"><b>CÓDIGO</b></td>
+                            <td class="tabla"><b>DPI</b></td>
+                            <td class="tabla"><b>NOMBRES</b></td>
+                            <td class="tabla"><b>DIRECCIÓN</b></td>
+                            <td class="tabla"><b>ESTADO</b></td>
+                            <td class="tabla"><b>ACCIONES</b></td>
 
                         </tr>
                     </thead>
                     <tbody>
                         <c:forEach var="cliente" items="${clientes}">
-                            <tr>
+                            <tr class="contenido">
                                 <td>${cliente.getCodigoCliente()}</td>
                                 <td>${cliente.getDPICliente()}</td>
                                 <td>${cliente.getNombresCliente()}</td>

@@ -92,11 +92,7 @@ public class Validar extends HttpServlet {
         }else{
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-        
-
-        
-        
-        
+ 
     }
 
     /**

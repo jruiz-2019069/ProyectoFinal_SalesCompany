@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/633d6c2d6d.js" crossorigin="anonymous"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Producto</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -44,12 +45,12 @@
                 <table class="table table-striped text-center ">
                     <thead>
                         <tr class="table-info">
-                            <td>CODIGO</td>
-                            <td>PRODUCTO</td>
-                            <td>PRECIO</td>
-                            <td>STOCK</td>
-                            <td>ESTADO</td>
-                            <td>ACCIONES</td>
+                            <td><b>CODIGO</b></td>
+                            <td><b>PRODUCTO</b></td>
+                            <td><b>PRECIO</b></td>
+                            <td><b>STOCK</b></td>
+                            <td><b>ESTADO</b></td>
+                            <td><b>ACCIONES</b></td>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,8 +62,8 @@
                                 <td>${producto.getStock()} </td>
                                 <td>${producto.getEstado()} </td>
                                 <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Producto&opcion=Editar&idProducto=${producto.getCodigoProducto()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Producto&opcion=Eliminar&idProducto=${producto.getCodigoProducto()}">Eliminar</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Producto&opcion=Editar&idProducto=${producto.getCodigoProducto()}"><i class="fas fa-user-edit"></i> Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Producto&opcion=Eliminar&idProducto=${producto.getCodigoProducto()}"><i class="fas fa-minus-circle"></i> Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>

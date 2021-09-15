@@ -8,53 +8,54 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://kit.fontawesome.com/633d6c2d6d.js" crossorigin="anonymous"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
               integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-info">
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Producto&opcion=Listar" target="myFrame">Producto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Empleado&opcion=Listar" target="myFrame">Empleado</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Clientes&opcion=Listar" target="myFrame">Clientes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=RegistrarVenta" target="myFrame">Nueva Venta</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button style="border: none; " class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ${usuario.getNombresEmpleado()}
-                </button>
-                <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">
-                        <img src="img/user.png" alt="100" width="100"/>
-                    </a>
-                    <a class="dropdown-item" href="#"> ${usuario.getUsuario()}</a>
-                    <a class="dropdown-item" href="#"> ${usuario.getUsuario()}@gmail.com</a>
-                    <div class="dropdown-divider"></div>
-                    <form action="Validar" method="POST">
-                        <button name="accion" class="dropdown-item" href="#">Salir</button>
-                    </form>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-info">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Home"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Producto&opcion=Listar" target="myFrame"><i class="fas fa-desktop"></i> Producto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Empleado&opcion=Listar" target="myFrame"><i class="far fa-user-circle"></i> Empleado</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Clientes&opcion=Listar" target="myFrame"><i class="fas fa-universal-access"></i> Clientes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=RegistrarVenta" target="myFrame"><i class="fas fa-shopping-cart"></i> Nueva Venta</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </nav>
+                <div class="dropdown">
+                    <button style="border: none; " class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user-tie"></i>       ${usuario.getNombresEmpleado()}
+                    </button>
+                    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">
+                            <img src="img/user.png" alt="100" width="100"/>
+                        </a>
+                        <a class="dropdown-item" href="#"> ${usuario.getUsuario()}</a>
+                        <a class="dropdown-item" href="#"> ${usuario.getUsuario()}@gmail.com</a>
+                        <div class="dropdown-divider"></div>
+                        <form action="Validar" method="POST">
+                            <button name="accion" class="dropdown-item" href="#">Salir</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <div class="m-4" style="height: 520px;">
-            <iframe name="myFrame" style="height: 100%; width: 100%; border: none;"> </iframe>
-
-
+            <iframe name="myFrame" src="informacionHome.jsp" style="height: 100%; width: 100%; border: none;"></iframe>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

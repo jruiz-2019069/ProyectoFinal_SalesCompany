@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.JOptionPane;
 import modelo.Cliente;
 import modelo.ClienteDAO;
 import modelo.Empleado;
@@ -66,14 +67,22 @@ public class Controlador extends HttpServlet {
                         break;
 
                     case "Agregar":
-                        producto.setNombreProducto(request.getParameter("txtNombreProducto"));
-                        producto.setPrecio( Double.parseDouble(request.getParameter("txtPrecio")));
-                        producto.setStock(Integer.parseInt(request.getParameter("txtStock")));
-                        producto.setEstado(request.getParameter("txtEstado"));
-                        productoDAO.agregar(producto);
-                        
-                        request.getRequestDispatcher("Controlador?menu=Producto&opcion=Listar").forward(request, response);
+                        try {
+                            if (request.getParameter("txtNombreProducto").equals("") || request.getParameter("txtPrecio").equals("")
+                                    || request.getParameter("txtStock").equals("") || request.getParameter("txtEstado").equals("")) {
+                                System.out.println("¡CAMPOS VACÍOS!");
+                            } else {
+                                producto.setNombreProducto(request.getParameter("txtNombreProducto"));
+                                producto.setPrecio(Double.parseDouble(request.getParameter("txtPrecio")));
+                                producto.setStock(Integer.parseInt(request.getParameter("txtStock")));
+                                producto.setEstado(request.getParameter("txtEstado"));
+                                productoDAO.agregar(producto);
+                            }
 
+                        } catch (Exception e) {
+                            System.out.println("¡CAMPOS VACÍOS!");
+                        }
+                        request.getRequestDispatcher("Controlador?menu=Producto&opcion=Listar").forward(request, response);
                         break;
 
                     case "Editar":
@@ -119,13 +128,19 @@ public class Controlador extends HttpServlet {
                         break;
 
                     case "Agregar":
-                        empleado.setDPIEmpleado(request.getParameter("txtDPIEmpleado"));
-                        empleado.setNombresEmpleado(request.getParameter("txtNombresEmpleado"));
-                        empleado.setTelefonoEmpleado(request.getParameter("txtTelefonoEmpleado"));
-                        empleado.setEstado(request.getParameter("txtEstadoEmpleado"));
-                        empleado.setUsuario(request.getParameter("txtUsuario"));
+                        if (request.getParameter("txtDPIEmpleado").equals("") || request.getParameter("txtNombresEmpleado").equals("")
+                                || request.getParameter("txtTelefonoEmpleado").equals("") || request.getParameter("txtEstadoEmpleado").equals("")
+                                || request.getParameter("txtUsuario").equals("")) {
+                            System.out.println("¡CAMPOS VACÍOS!");
+                        } else {
+                            empleado.setDPIEmpleado(request.getParameter("txtDPIEmpleado"));
+                            empleado.setNombresEmpleado(request.getParameter("txtNombresEmpleado"));
+                            empleado.setTelefonoEmpleado(request.getParameter("txtTelefonoEmpleado"));
+                            empleado.setEstado(request.getParameter("txtEstadoEmpleado"));
+                            empleado.setUsuario(request.getParameter("txtUsuario"));
+                            empleadoDao.agregar(empleado);
 
-                        empleadoDao.agregar(empleado);
+                        }
                         request.getRequestDispatcher("Controlador?menu=Empleado&opcion=Listar").forward(request, response);
                         break;
 
@@ -172,11 +187,18 @@ public class Controlador extends HttpServlet {
                         break;
 
                     case "Agregar":
-                        cliente.setDPICliente(request.getParameter("txtDPICliente"));
-                        cliente.setNombresCliente(request.getParameter("txtNombresCliente"));
-                        cliente.setDireccionCliente(request.getParameter("txtDireccionCliente"));
-                        cliente.setEstado(request.getParameter("txtEstadoCliente"));
-                        clienteDAO.agregar(cliente);
+                        if (request.getParameter("txtDPICliente").equals("") || request.getParameter("txtNombresCliente").equals("")
+                                || request.getParameter("txtDireccionCliente").equals("") || request.getParameter("txtEstadoCliente").equals("")) {
+                            System.out.println("¡CAMPOS VACÍOS!");
+                        } else {
+                            cliente.setDPICliente(request.getParameter("txtDPICliente"));
+                            cliente.setNombresCliente(request.getParameter("txtNombresCliente"));
+                            cliente.setDireccionCliente(request.getParameter("txtDireccionCliente"));
+                            cliente.setEstado(request.getParameter("txtEstadoCliente"));
+                            clienteDAO.agregar(cliente);
+
+                        }
+
                         request.getRequestDispatcher("Controlador?menu=Clientes&opcion=Listar").forward(request, response);
                         break;
 

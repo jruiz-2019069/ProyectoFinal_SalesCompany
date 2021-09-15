@@ -84,7 +84,7 @@ INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usu
 INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usuario)
 	VALUES('5687 34546 3245', 'Sara Guzmán', '34568743' ,'1' ,'sguzman');
 INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usuario)
-	VALUES('3234 34587 5678', 'Claudia Ruiz', '34546787' ,'1' ,'cruiz');
+	VALUES('1234 56789 1234', 'Jose Gerardo Ruiz García', '34546787' ,'1' ,'jruiz');
 
 INSERT INTO Producto(nombreProducto, precio, stock, estado)
 	VALUES('Teclado Brocs', 450.00, 15, '1');

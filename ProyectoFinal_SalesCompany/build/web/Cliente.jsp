@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <script src="https://kit.fontawesome.com/633d6c2d6d.js" crossorigin="anonymous"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
               integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -35,6 +35,7 @@
                         <label>Estado:</label>
                         <input type="text" name="txtEstadoCliente" value="${cliente1.getEstado()}" class="form-control">
                     </div>
+
                     <input type="submit" name="opcion" value="Agregar" class="btn btn-info">
                     <input type="submit" name="opcion" value="Actualizar" class="btn btn-success">
 
@@ -46,12 +47,12 @@
                     <thead>
 
                         <tr class="table-info">
-                            <td>CÓDIGO</td>
-                            <td>DPI</td>
-                            <td>NOMBRES</td>
-                            <td>DIRECCIÓN</td>
-                            <td>ESTADO</td>
-                            <td>ACCIONES</td>
+                            <td><b>CÓDIGO</b></td>
+                            <td><b>DPI</b></td>
+                            <td><b>NOMBRES</b></td>
+                            <td><b>DIRECCIÓN</b></td>
+                            <td><b>ESTADO</b></td>
+                            <td><b>ACCIONES</b></td>
 
                         </tr>
                     </thead>
@@ -63,10 +64,10 @@
                                 <td>${cliente.getNombresCliente()}</td>
                                 <td>${cliente.getDireccionCliente()}</td>
                                 <td>${cliente.getEstado()}</td>
-                                
+
                                 <td>
-                                    <a class="btn btn-warning" href="Controlador?menu=Clientes&opcion=Editar&idCliente=${cliente.getCodigoCliente()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Clientes&opcion=Eliminar&idCliente=${cliente.getCodigoCliente()}">Eliminar</a>
+                                    <a class="btn btn-warning" href="Controlador?menu=Clientes&opcion=Editar&idCliente=${cliente.getCodigoCliente()}"><i class="fas fa-user-edit"></i> Editar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Clientes&opcion=Eliminar&idCliente=${cliente.getCodigoCliente()}"><i class="fas fa-minus-circle"></i> Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>

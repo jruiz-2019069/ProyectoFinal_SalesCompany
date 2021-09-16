@@ -20,7 +20,7 @@
             <div class="col-sm-54">
                 <div class="card">
                     <form action="">
-                        <div class="card-body">
+                        <div  style="padding: 10px;box-shadow: 0 0 20px #85C1E9;" class="card-body">
 
                             <div class="form-group">
                                 <label class="fuente">Datos del Cliente</label>

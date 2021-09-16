@@ -19,7 +19,7 @@
     <body>
         <div class="container-fluid">
             <div class="d-flex">
-                <div class="card col-sm-4">
+                <div style="padding: 10px;box-shadow: 0 0 20px #85C1E9;" class="card col-sm-4">
                     <form action="Controlador?menu=Empleado" method="POST">
                         <div class="form-group">
                             <label class="fuente">DPI:</label>

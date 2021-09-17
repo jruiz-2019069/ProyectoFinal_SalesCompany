@@ -65,26 +65,26 @@ CREATE TABLE DetalleVenta(
 
 
 INSERT INTO Cliente (DPICliente, nombresCliente, direccionCliente, estado)
-	VALUES ('2375 89060 1234', 'Clemente Salvatierra', 'Guatemala', '1');
+	VALUES ('2375890601234', 'Clemente Salvatierra', 'Guatemala', '1');
 INSERT INTO Cliente (DPICliente, nombresCliente, direccionCliente, estado)
-	VALUES ('5652 28543 2829', 'Rodrigo Salvatierra', 'Villa Nueva', '1');
+	VALUES ('5652285432829', 'Rodrigo Salvatierra', 'Villa Nueva', '1');
 INSERT INTO Cliente (DPICliente, nombresCliente, direccionCliente, estado)
-	VALUES ('8906 22758 2378', 'Valery Funez', 'Mixco', '1');
+	VALUES ('8906227582378', 'Valery Funez', 'Mixco', '1');
 INSERT INTO Cliente (DPICliente, nombresCliente, direccionCliente, estado)
-	VALUES ('3456 54543 6359', 'Sofia Guerra', 'Villa Nueva', '1');
+	VALUES ('3456545436359', 'Sofia Guerra', 'Villa Nueva', '1');
 INSERT INTO Cliente (DPICliente, nombresCliente, direccionCliente, estado)
-	VALUES ('3456 67875 3487', 'Daniel Morales', 'Guatemala', '1');
+	VALUES ('3456678753487', 'Daniel Morales', 'Guatemala', '1');
 
 INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usuario)
-	VALUES('3456 54678 5434', 'Harold Hernández', '34566754' ,'1' ,'hhernandez');
+	VALUES('3456546785434', 'Harold Hernández', '34566754' ,'1' ,'hhernandez');
 INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usuario)
-	VALUES('5434 43875 6798', 'Elias Morales', '21675498' ,'1' ,'emorales');
+	VALUES('5434438756798', 'Elias Morales', '21675498' ,'1' ,'emorales');
 INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usuario)
-	VALUES('4234 54567 4564', 'Abigail Mejia', '32546787' ,'1' ,'amejia');
+	VALUES('4234545674564', 'Abigail Mejia', '32546787' ,'1' ,'amejia');
 INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usuario)
-	VALUES('5687 34546 3245', 'Sara Guzmán', '34568743' ,'1' ,'sguzman');
+	VALUES('5687345463245', 'Sara Guzmán', '34568743' ,'1' ,'sguzman');
 INSERT INTO Empleado(DPIEmpleado, nombresEmpleado, telefonoEMpleado, estado, usuario)
-	VALUES('1234 56789 1234', 'Jose Gerardo Ruiz García', '34546787' ,'1' ,'jruiz');
+	VALUES('1234567891234', 'Jose Gerardo Ruiz García', '34546787' ,'1' ,'jruiz');
 
 INSERT INTO Producto(nombreProducto, precio, stock, estado)
 	VALUES('Teclado Brocs', 450.00, 15, '1');

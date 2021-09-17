@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="d-flex">
-            <div style="padding: 10px;box-shadow: 4px 4px 15px 15px #85C1E9;" class="card col-sm-4">
+            <div style="padding: 10px;box-shadow: 0 0 20px #85C1E9;" class="card col-sm-4">
                 <form action="Controlador?menu=Producto" method="POST">
                     <div class="form-group">
                         <label class="fuente">Producto:</label>

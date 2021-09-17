@@ -4,6 +4,7 @@
     Author     : famil
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,7 +20,7 @@
         <div class="d-flex">
             <div class="col-sm-54">
                 <div class="card">
-                    <form action="">
+                    <form action="Controlador?menu=RegistrarVenta" method="POST">
                         <div  style="padding: 10px;box-shadow: 0 0 20px #85C1E9;" class="card-body">
 
                             <div class="form-group">
@@ -27,12 +28,12 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigoCliente" class="form-control" placeholder="Codigo">
-                                    <input type="submit" name="accion" value="Buscar" class="btn btn-outline-info">
+                                    <input type="text" name="codigoCliente" value="${cliente.getDPICliente()}" class="form-control" placeholder="Codigo">
+                                    <input type="submit" name="opcion" value="BuscarCliente" class="btn btn-outline-info">
 
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" name="nombresCliente" class="form-control">
+                                    <input type="text" name="nombresCliente" placeholder="Nombre Cliente" value="${cliente.getNombresCliente()}"class="form-control">
 
                                 </div>
                             </div>
@@ -41,30 +42,30 @@
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="codigoProducto" class="form-control" placeholder="Codigo">
-                                    <input type="submit" name="accion" value="Buscar" class="btn btn-outline-info">
+                                    <input type="text" name="codigoProducto" value="${producto.getCodigoProducto()}"class="form-control" placeholder="Codigo">
+                                    <input type="submit" name="opcion" value="BuscarProducto" class="btn btn-outline-info">
 
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" name="nombresCliente" class="form-control">
+                                    <input type="text" name="nombreProducto" placeholder="Nombre Producto" value="${producto.getNombreProducto()}"class="form-control">
 
                                 </div>
                             </div>
                             <div class="form-group d-flex">
                                 <div class="col-sm-6 d-flex">
-                                    <input type="text" name="precio" class="form-control" placeholder="Q.00.00">
+                                    <input type="text" name="precio" value="${producto.getPrecio()}" class="form-control" placeholder="Q.00.00">
 
                                 </div>
                                 <div class="col-sm-3">
-                                    <input type="number" name="cantidad" class="form-control">
+                                    <input type="number" name="cantidad" value="1" class="form-control">
                                 </div>
                                 <div class="col-sm-3">
-                                    <input type="text" name="stock" placeholder="Stock" class="form-control">
+                                    <input type="text" name="stock" value="${producto.getStock()}" placeholder="Stock" class="form-control">
 
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="accion" value="Agregar" class="btn btn-outline-info">
+                                <input type="submit" name="opcion" value="Agregar" class="btn btn-outline-info">
                             </div>
                         </div>
 
@@ -76,35 +77,37 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex col-sm-6 ml-auto">
-                            <label>Número de Serie</label>
-                            <input type="text" name="noSerie" class="form-control">
+                            <label class="tabla text-center" >NÚMERO DE SERIE</label>
+                            <input type="text" name="noSerie" value="00000${numero}" class="form-control">
                         </div>
                         <br>
                         <table class="table table-hover">
                             <thead>
 
 
-                                <tr>
-                                    <th class="tabla">Número</th>
-                                    <th class="tabla">Código</th>
-                                    <th class="tabla">Descripción</th>
-                                    <th class="tabla">Precio</th>
-                                    <th class="tabla">Cantidad</th>
-                                    <th class="tabla">Subtotal</th>
-                                    <th class="tabla">Acciones</th>
+                                <tr class="text-center">
+                                    <th class="tabla">NÚMERO</th>
+                                    <th class="tabla">CÓDIGO</th>
+                                    <th class="tabla">DESCRIPCIÓN</th>
+                                    <th class="tabla">PRECIO</th>
+                                    <th class="tabla">CANTIDAD</th>
+                                    <th class="tabla">SUBTOTAL</th>
+              
 
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="contenido">
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                <c:forEach var="lista" items="${lista}">
+                                    <tr class="contenido text-center">
+                                        <td>${lista.getItem()}</td>
+                                        <td>${lista.getCodigoProducto()}</td>
+                                        <td>${lista.getDescripcionProd()}</td>
+                                        <td>${lista.getPrecio()}</td>
+                                        <td>${lista.getCantidad()}</td>
+                                        <td>${lista.getSubTotal()}</td>
+                  
+                                    </tr>
+                                </c:forEach>
                             </tbody>
 
 
@@ -112,10 +115,13 @@
 
                     </div>
                     <div class="card-footer">
-                        <div>
-                            <input type="submit" name="accion" value="Generar Venta" class="btn btn-success">
-                            <input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
+                        <div class="col-sm-6">
+                            <input type="submit" name="opcion" value="Generar Venta" class="btn btn-success">
+                            <input type="submit" name="opcion" value="Cancelar" class="btn btn-danger">
 
+                        </div>
+                        <div class="col-sm-4 ml-auto">
+                            <input type="text" name="txtTotal" value="Q ${total}0 " placeholder="TOTAL A PAGAR" class="form-control">
                         </div>
 
                     </div>

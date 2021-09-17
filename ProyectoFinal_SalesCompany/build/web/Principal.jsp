@@ -32,7 +32,7 @@
                             <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=Clientes&opcion=Listar" target="myFrame"><i class="fas fa-universal-access"></i> Clientes</a>
                         </li>
                         <li class="nav-item">
-                            <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=RegistrarVenta" target="myFrame"><i class="fas fa-shopping-cart"></i> Nueva Venta</a>
+                            <a style="margin-left: 10px; border: none; " class="btn btn-outline-light" href="Controlador?menu=RegistrarVenta&opcion=Ventana" target="myFrame"><i class="fas fa-shopping-cart"></i> Nueva Venta</a>
                         </li>
                     </ul>
                 </div>

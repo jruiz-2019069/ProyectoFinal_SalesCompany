@@ -20,6 +20,7 @@ import modelo.Empleado;
 import modelo.EmpleadoDAO;
 import modelo.Producto;
 import modelo.ProductoDAO;
+import modelo.Venta;
 
 /**
  *
@@ -38,6 +39,14 @@ public class Controlador extends HttpServlet {
     Producto producto = new Producto();
     ProductoDAO productoDAO = new ProductoDAO();
     int codigoProducto;
+
+    Venta venta = new Venta();
+    List<Venta> listaVenta = new ArrayList<Venta>();
+    int item = 0;
+    int canti;
+    String descripción;
+    Double precio, subTotal;
+    Double totalPagar;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -229,6 +238,64 @@ public class Controlador extends HttpServlet {
                 break;
 
             case "RegistrarVenta":
+
+                switch (opcion) {
+
+                    case "Ventana":
+                        request.getRequestDispatcher("Venta.jsp").forward(request, response);
+                        break;
+
+                    case "BuscarCliente":
+                        String dpi = request.getParameter("codigoCliente");
+                        cliente = clienteDAO.listarDPICliente(dpi);
+                        request.setAttribute("cliente", cliente);
+                        
+                        break;
+                        
+                        
+                    case "BuscarProducto":
+                        codigoProducto =Integer.parseInt(request.getParameter("codigoProducto"));
+                        producto = productoDAO.listarcodigoProducto(codigoProducto);
+                        request.setAttribute("producto", producto);
+                        request.setAttribute("cliente", cliente);
+                        
+                        request.setAttribute("lista", listaVenta);
+
+                        break;
+                        
+                    case "Agregar":
+                        request.setAttribute("cliente", cliente);
+                        totalPagar =0.0;
+                        item = item +1;
+                        codigoProducto = producto.getCodigoProducto();
+                        descripción = request.getParameter("nombreProducto");
+                        precio = Double.parseDouble(request.getParameter("precio"));
+                        canti = Integer.parseInt(request.getParameter("cantidad"));
+                        subTotal = precio *canti;
+                        venta = new Venta();
+                        venta.setItem(item);
+                        venta.setCodigoProducto(codigoProducto);
+                        venta.setDescripcionProd(descripción);
+                        venta.setPrecio(precio);
+                        venta.setCantidad(canti);
+                        venta.setSubTotal(subTotal);
+                        listaVenta.add(venta);
+                        request.setAttribute("lista", listaVenta);
+                        
+                        for(int i=0; i<listaVenta.size(); i++){
+                            totalPagar = totalPagar +listaVenta.get(i).getSubTotal();
+                        }
+                        request.setAttribute("total", totalPagar);
+                        
+                        int numero = (int)(Math.random()*10+1);
+                        request.setAttribute("numero", numero);
+ 
+
+                        break;
+                        
+
+                }
+
                 request.getRequestDispatcher("Venta.jsp").forward(request, response);
                 break;
 

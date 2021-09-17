@@ -76,6 +76,27 @@ public class ClienteDAO {
 
         return cli;
     }
+    
+        public Cliente listarDPICliente(String id) {
+
+        Cliente cli = new Cliente();
+        String sql = "select * from Cliente where DPICliente = " + id;
+        try {
+            con = cn.Conexion();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                cli.setDPICliente(rs.getString(2));
+                cli.setNombresCliente(rs.getString(3));
+                cli.setDireccionCliente(rs.getString(4));
+                cli.setEstado(rs.getString(5));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return cli;
+    }
 
     public int actualizar(Cliente cli) {
         String sql = "update Cliente set DPICliente = ?, nombresCliente = ?, direccionCliente = ?, estado = ?" + "where codigoCliente = ?";
@@ -104,5 +125,8 @@ public class ClienteDAO {
             e.printStackTrace();
         }
     }
+    
+    
+    
 
 }

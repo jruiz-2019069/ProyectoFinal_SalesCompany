@@ -70,9 +70,10 @@
                                     <td>${empleado.getTelefonoEmpleado()}</td>
                                     <td>${empleado.getEstado()}</td>
                                     <td>${empleado.getUsuario()}</td>
-                                    <td>
+                                    <td class="d-flex">
                                         <a class="btn btn-warning" href="Controlador?menu=Empleado&opcion=Editar&idEmpleado=${empleado.getCodigoEmpleado()}"><i class="fas fa-user-edit"></i> Editar</a>
                                         <a class="btn btn-danger" href="Controlador?menu=Empleado&opcion=Eliminar&idEmpleado=${empleado.getCodigoEmpleado()}"><i class="fas fa-minus-circle"></i> Eliminar</a>                                </td>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
